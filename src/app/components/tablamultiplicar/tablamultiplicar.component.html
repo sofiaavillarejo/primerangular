@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Tabla de multiplicar</h1>
+  <form #multiplicarForm="ngForm">
+    <label>Número a multiplicar:</label>
+    <input type="number" name="cajanum" #cajanum required/>
+    <button (click)="tablaMultiplicar()">Generar tabla</button>
+  </form>
+  <div *ngIf="aux.length > 0">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Operación</th>
+          <th>Resultado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let num of aux; let i = index">
+          <td>{{cajaNumRef.nativeElement.value}} * {{ i }}</td>
+          <td>{{num}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
