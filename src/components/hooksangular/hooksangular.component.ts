@@ -6,7 +6,11 @@ import { Component, OnInit } from "@angular/core";
 })
 
 export class HooksAngular implements OnInit{
+  public mensaje: string;
+
   constructor() {
+    this.mensaje = "Soy Hooks en Angular";
+
     console.log("Soy el constructor de Hooks Angular");
   }
 
@@ -16,5 +20,9 @@ export class HooksAngular implements OnInit{
 
   ngDoCheck(): void {
     console.log("Ejecutando el método ngDoCheck");
+  }
+
+  cambiarMensaje(): void {
+    this.mensaje = "Cambiando el mensaje en un click!";
   }
 }

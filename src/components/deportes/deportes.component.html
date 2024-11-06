@@ -1,0 +1,35 @@
+<div>
+  <h1>Directivas angular</h1>
+  <p>{{deportes.length}}</p>
+  <div *ngIf="deportes.length < 6; then condiciontrue else condicionelse">
+    <!-- SE COMENTA PARA IMPLEMENTAR LA PLANTILLA
+    <p>Tienes menos de 6 deportes</p>
+    <p>El primer deporte es {{deportes[0]}}</p> -->
+  </div>
+  <!-- plantilla true -->
+  <ng-template #condiciontrue>
+    <p style="color: red;">Tienes menos de 6 deportes</p>
+  </ng-template>
+  <!-- PLANTILLA CONDICIONAL ELSE -->
+  <ng-template #condicionelse>
+    <p style="color: blue;">Tenemos más de 6 deportes!</p>
+  </ng-template>
+  <ul>
+    <li *ngFor="let deporte of deportes; let i = index">Index: {{i}}, {{deporte}}</li>
+  </ul>
+</div>
+<div>
+  <h1>Numeros Component</h1>
+  <p>Longitud del array de numeros {{numeros.length}}</p>
+  <ul>
+    <!-- css directivas inline -->
+    <li *ngFor="let num of numeros" [style.color]="num % 2 == 0 ? 'green' : 'red'">{{num}}</li>
+    <hr/>
+    <!-- css directivas externo -->
+    <li *ngFor="let num of numeros" [class.par]="num % 2 == 0" [class.impar]="num % 2 == 1">{{num}}</li>
+    <!--[ ngClass] -->
+    <hr/>
+    <li *ngFor="let num of numeros" [ngClass]="{par: num % 2 == 0, impar: num % 2 == 1}">{{num}}</li>
+
+  </ul>
+</div>
